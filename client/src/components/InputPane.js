@@ -1,4 +1,3 @@
-// client/src/components/InputPane.js
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -289,5 +288,3 @@ const InputPane = ({ onResults, onLoading }) => {
 
 export default InputPane;
 
-
- 

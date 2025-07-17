@@ -1,4 +1,3 @@
-// client/src/components/ResourcesPane.js
 import React from 'react';
 import styled from 'styled-components';
 
@@ -228,3 +227,5 @@ const ResourcesPane = () => {
 };
 
 export default ResourcesPane;
+
+
