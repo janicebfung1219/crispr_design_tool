@@ -260,3 +260,4 @@ const ResultsPane = ({ results, loading }) => {
 
 export default ResultsPane;
 
+

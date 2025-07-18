@@ -12,16 +12,17 @@
     "install-client": "cd client && npm install"
   },
   "dependencies": {
-    "axios": "^1.6.0",
-    "cors": "^2.8.5",
     "express": "^4.18.2",
-    "ini": "^4.1.3",
+    "cors": "^2.8.5",
     "multer": "^1.4.5-lts.1",
+    "axios": "^1.6.0",
+    "xml2js": "^0.6.2",
     "node-fetch": "^3.3.2",
-    "xml2js": "^0.6.2"
+    "ini": "^4.1.1"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "concurrently": "^8.2.2"
   }
 }
+
