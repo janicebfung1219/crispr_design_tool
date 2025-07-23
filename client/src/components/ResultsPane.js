@@ -152,7 +152,12 @@ const ResultsPane = ({ results, loading }) => {
   const refreshVisualization = () => {
     const iframe = document.querySelector('iframe[title="LWGV Visualization"]');
     if (iframe) {
-      iframe.src = iframe.src;
+      // Force refresh by changing src
+      const currentSrc = iframe.src;
+      iframe.src = '';
+      setTimeout(() => {
+        iframe.src = currentSrc;
+      }, 100);
     }
   };
 
@@ -259,5 +264,3 @@ const ResultsPane = ({ results, loading }) => {
 };
 
 export default ResultsPane;
-
-

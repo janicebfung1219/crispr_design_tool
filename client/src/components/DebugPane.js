@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -125,31 +125,29 @@ const DisabledMessage = styled.div`
 
 const DebugPane = ({ enabled }) => {
   const [messages, setMessages] = useState([]);
-  const [config, setConfig] = useState({});
   const [connected, setConnected] = useState(false);
   const [autoScroll, setAutoScroll] = useState(true);
   const messagesEndRef = useRef(null);
   const intervalRef = useRef(null);
 
-  const scrollToBottom = () => {
+    const scrollToBottom = useCallback(() => {
     if (autoScroll && messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+    }, [autoScroll]);
 
-  const fetchMessages = async () => {
+const fetchMessages = useCallback(async () => {
     if (!enabled) return;
     
     try {
       const response = await axios.get('/api/debug/messages');
       setMessages(response.data.messages || []);
-      setConfig(response.data.config || {});
       setConnected(true);
     } catch (error) {
       setConnected(false);
       console.error('Failed to fetch debug messages:', error);
     }
-  };
+}, [enabled]);
 
   const clearMessages = async () => {
     if (!enabled) return;
@@ -177,11 +175,11 @@ const DebugPane = ({ enabled }) => {
         clearInterval(intervalRef.current);
       }
     };
-  }, [enabled]);
+  }, [enabled, fetchMessages]);
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, scrollToBottom]);
 
   if (!enabled) {
     return (
