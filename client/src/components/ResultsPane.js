@@ -152,12 +152,7 @@ const ResultsPane = ({ results, loading }) => {
   const refreshVisualization = () => {
     const iframe = document.querySelector('iframe[title="LWGV Visualization"]');
     if (iframe) {
-      // Force refresh by changing src
-      const currentSrc = iframe.src;
-      iframe.src = '';
-      setTimeout(() => {
-        iframe.src = currentSrc;
-      }, 100);
+      iframe.src = iframe.src;
     }
   };
 

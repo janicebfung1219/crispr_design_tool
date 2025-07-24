@@ -28,6 +28,13 @@ const DEBUG_MODE = config.debug.enabled;
 const DEBUG_LEVEL = parseInt(config.debug.level);
 const DEBUG_SECTIONS = config.debug.sections.split(',').map(s => s.trim());
 
+console.log('=== CONFIG DEBUG ===');
+console.log('Config loaded:', JSON.stringify(config, null, 2));
+console.log('DEBUG_MODE:', DEBUG_MODE);
+console.log('DEBUG_LEVEL:', DEBUG_LEVEL);
+console.log('DEBUG_SECTIONS:', DEBUG_SECTIONS);
+console.log('==================');
+
 // Debug logging function with sections and levels
 const debugLog = (section, level, message, data = null) => {
   if (!DEBUG_MODE || level > DEBUG_LEVEL) return;
