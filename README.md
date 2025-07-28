@@ -5,6 +5,13 @@ A comprehensive web-based CRISPR design tool built with React and Node.js.
 
 ## Features
 
+
+npm install
+cd client && npm install
+
+npm run dev 
+
+
 - **Multiple PAM Types**: Support for SpCas9, SpCas9-VRQR, xCas9, Cas12a, and Cas12f
 - **Flexible Input**: Manual entry, NCBI sequence fetch, or FASTA file upload
 - **Intelligent Scoring**: Built-in algorithm for gRNA quality assessment
